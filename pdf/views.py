@@ -28,6 +28,6 @@ from .models import Profile
 #     return render(request, "pdf/accept.html")
 
 
-def generated_cv_view(request,id):
-    user_profile = Profile.objects.get(pk=id)
-    return render(request, "pdf/resume.html",{ "user_profile":user_profile})
+# def generated_cv_view(request,id):
+#     user_profile = Profile.objects.get(pk=id)
+#     return render(request, "pdf/resume.html",{ "user_profile":user_profile})
