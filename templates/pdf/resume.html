@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+</head>
+<body>
+    <h2>{{user_profile.name}}</h2>
+    <h2>{{user_profile.email}}</h2>
+    <h2>{{user_profile.phone}}</h2>
+    <hr>
+    <br>
+    <h3>Summary</h3>
+    <p>{{user_profile.summary}}</p>
+
+    <h3>Previous Work</h3>
+    <p>{{user_profile.previous_work}}</p>
+
+    <h3>Skills</h3>
+    <p>{{user_profile.skills}}</p>
+
+    <h3>Education</h3>
+    <ul>
+        <li>{{user_profile.school}}</li>
+        <li>{{user_profile.university}}</li>
+        <li>{{user_profile.degree}}</li>  
+    </ul>
+</body>
+</html>
