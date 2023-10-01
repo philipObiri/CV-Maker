@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Profile
 import pdfkit
 from django.http import HttpResponse
 from django.template import loader 
 import io
+from django.contrib import messages 
 
 # Create your views here.
 
@@ -30,7 +31,11 @@ def create_cv(request):
             skills=skills,
             school=school
             )
-    return render(request, "pdf/accept.html")
+        messages.success(request, "Resume Created Successfully")
+        return redirect ("profiles")
+    else:
+        messages.warning(request, "There was an error creating resume. Please try again")
+        return render(request, "pdf/accept.html")
 
 
 def generated_cv_view(request,id):
@@ -46,3 +51,9 @@ def generated_cv_view(request,id):
     response["Content-Disposition"] = "attachment"
     filename = "resume.pdf"
     return response
+
+
+
+def list_of_profiles(request):
+    profiles = Profile.objects.all()
+    return render(request, "pdf/list.html",{ "profiles":profiles })
